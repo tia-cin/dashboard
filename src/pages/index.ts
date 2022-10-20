@@ -7,6 +7,7 @@ import Pie from "./Charts/Pie";
 import Pyramid from "./Charts/Pyramid";
 import Stacked from "./Charts/Stacked";
 
+import Landing from "./Landing";
 import Calendar from "./Calendar";
 import ColorPicker from "./ColorPicker";
 import Customers from "./Customers";
@@ -21,6 +22,7 @@ export {
   Bar,
   ColorMapping,
   Financial,
+  Landing,
   Line,
   Pie,
   Pyramid,

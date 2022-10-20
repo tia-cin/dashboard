@@ -9,6 +9,7 @@ import Notification from "./Notification";
 import Sidebar from "./Sidebar";
 import ThemeSettings from "./ThemeSettings";
 import UserProfile from "./UserProfile";
+import Auth from "./Auth";
 
 import LineChart from "./Charts/LineChart";
 import PieChart from "./Charts/PieChart";
@@ -16,6 +17,7 @@ import SparkLineChart from "./Charts/SparkLineChart";
 import StackedChart from "./Charts/StackedChart";
 
 export {
+  Auth,
   Button,
   Cart,
   ChartHeader,
