@@ -12,13 +12,13 @@ import { userInfo } from "os";
 
 function Navbar() {
   const {
+    currentColor,
     activeMenu,
     setActiveMenu,
     handleClick,
     isClicked,
-    setIsClicked,
-    screenSize,
     setScreenSize,
+    screenSize,
   } = useStateContext();
 
   const NavButton: React.FC<{
@@ -63,27 +63,27 @@ function Navbar() {
       <NavButton
         title="Menu"
         handler={() => setActiveMenu((prev: boolean) => !prev)}
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
       <div className="flex">
         <NavButton
           title="Cart"
           handler={() => handleClick("cart")}
-          color="blue"
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title="Chat"
           handler={() => handleClick("chat")}
-          color="blue"
+          color={currentColor}
           icon={<BsChatLeft />}
           dotColor="yellow"
         />
         <NavButton
           title="Notification"
           handler={() => handleClick("notification")}
-          color="blue"
+          color={currentColor}
           icon={<RiNotification3Line />}
           dotColor="yellow"
         />
