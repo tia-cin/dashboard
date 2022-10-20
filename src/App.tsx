@@ -22,9 +22,11 @@ import {
   Stacked,
 } from "./pages";
 import { Navbar, Sidebar } from "./components";
+import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
