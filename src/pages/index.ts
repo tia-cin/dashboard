@@ -1,7 +1,7 @@
 import Area from "./Charts/Area";
 import Bar from "./Charts/Bar";
 import ColorMapping from "./Charts/ColorMapping";
-import Finantial from "./Charts/Finantial";
+import Financial from "./Charts/Financial";
 import Line from "./Charts/Line";
 import Pie from "./Charts/Pie";
 import Pyramid from "./Charts/Pyramid";
@@ -20,7 +20,7 @@ export {
   Area,
   Bar,
   ColorMapping,
-  Finantial,
+  Financial,
   Line,
   Pie,
   Pyramid,
