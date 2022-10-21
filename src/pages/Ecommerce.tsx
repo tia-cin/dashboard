@@ -152,7 +152,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex">
           <div
             className="rounded-2xl md:w-400 p-4 m-3"
             style={{ backgroundColor: currentColor }}
@@ -205,7 +205,7 @@ const Ecommerce = () => {
             <p className="text-xl font-semibold">Recent Transactions</p>
             <DropDown currentMode={currentMode} />
           </div>
-          <div className="mt-10 w-72 md:w-400">
+          <div className="mt-10 w-3/4">
             {recentTransactions.map((item) => (
               <div key={item.title} className="flex justify-between mt-4">
                 <div className="flex gap-4">
