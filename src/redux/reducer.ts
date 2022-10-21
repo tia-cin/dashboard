@@ -1,7 +1,7 @@
 import { ActionInterface, GOOGLE_LOGIN } from "./actions";
 
 export interface State {
-  user: null | {};
+  user: null | any;
 }
 
 const initialState: State = {

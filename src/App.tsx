@@ -15,6 +15,7 @@ import {
   Employees,
   Financial,
   Kanban,
+  Landing,
   Line,
   Order,
   Pie,
@@ -23,6 +24,9 @@ import {
 } from "./pages";
 import { Footer, Navbar, Sidebar, ThemeSettings } from "./components";
 import { useStateContext } from "./context/ContextProvider";
+import { useSelector } from "react-redux";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { State } from "./redux/reducer";
 
 const App = () => {
   const {
@@ -34,6 +38,7 @@ const App = () => {
     themeSettings,
     setThemeSettings,
   } = useStateContext();
+  const { user } = useSelector<State, any>((state) => state);
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");
@@ -45,71 +50,80 @@ const App = () => {
   }, []);
 
   return (
-    <div className={currentMode === "Dark" ? "dark" : ""}>
-      <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
-          <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
-            <TooltipComponent content="Settings">
-              <button
-                type="button"
-                onClick={() => setThemeSettings(true)}
-                style={{ background: currentColor, borderRadius: "50%" }}
-                className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
+    <GoogleOAuthProvider clientId="685878210309-gks34j817pq9uncef6s24l9ggl224utc.apps.googleusercontent.com">
+      {user ? (
+        <div className={currentMode === "Dark" ? "dark" : ""}>
+          <BrowserRouter>
+            <div className="flex relative dark:bg-main-dark-bg">
+              <div
+                className="fixed right-4 bottom-4"
+                style={{ zIndex: "1000" }}
               >
-                <FiSettings />
-              </button>
-            </TooltipComponent>
-          </div>
-          {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
-              <Sidebar />
-            </div>
-          ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar />
-            </div>
-          )}
-          <div
-            className={
-              activeMenu
-                ? "dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  "
-                : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
-            }
-          >
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-              <Navbar />
-            </div>
-            <div>
-              {themeSettings && <ThemeSettings />}
+                <TooltipComponent content="Settings">
+                  <button
+                    type="button"
+                    onClick={() => setThemeSettings(true)}
+                    style={{ background: currentColor, borderRadius: "50%" }}
+                    className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                  >
+                    <FiSettings />
+                  </button>
+                </TooltipComponent>
+              </div>
+              {activeMenu ? (
+                <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+                  <Sidebar />
+                </div>
+              ) : (
+                <div className="w-0 dark:bg-secondary-dark-bg">
+                  <Sidebar />
+                </div>
+              )}
+              <div
+                className={
+                  activeMenu
+                    ? "dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  "
+                    : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
+                }
+              >
+                <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+                  <Navbar />
+                </div>
+                <div>
+                  {themeSettings && <ThemeSettings />}
 
-              <Routes>
-                <Route path="/" element={<Ecommerce />} />
-                <Route path="/ecommerce" element={<Ecommerce />} />
+                  <Routes>
+                    <Route path="/" element={<Ecommerce />} />
+                    <Route path="/ecommerce" element={<Ecommerce />} />
 
-                <Route path="/orders" element={<Order />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                    <Route path="/orders" element={<Order />} />
+                    <Route path="/employees" element={<Employees />} />
+                    <Route path="/customers" element={<Customers />} />
 
-                <Route path="/kanban" element={<Kanban />} />
-                <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
+                    <Route path="/kanban" element={<Kanban />} />
+                    <Route path="/editor" element={<Editor />} />
+                    <Route path="/calendar" element={<Calendar />} />
+                    <Route path="/color-picker" element={<ColorPicker />} />
 
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
-                <Route path="/pyramid" element={<Pyramid />} />
-                <Route path="/stacked" element={<Stacked />} />
-              </Routes>
+                    <Route path="/line" element={<Line />} />
+                    <Route path="/area" element={<Area />} />
+                    <Route path="/bar" element={<Bar />} />
+                    <Route path="/pie" element={<Pie />} />
+                    <Route path="/financial" element={<Financial />} />
+                    <Route path="/color-mapping" element={<ColorMapping />} />
+                    <Route path="/pyramid" element={<Pyramid />} />
+                    <Route path="/stacked" element={<Stacked />} />
+                  </Routes>
+                </div>
+                <Footer />
+              </div>
             </div>
-            <Footer />
-          </div>
+          </BrowserRouter>
         </div>
-      </BrowserRouter>
-    </div>
+      ) : (
+        <Landing />
+      )}
+    </GoogleOAuthProvider>
   );
 };
 

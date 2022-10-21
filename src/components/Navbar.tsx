@@ -8,7 +8,8 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import avatar from "../data/avatar.jpg";
 import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../context/ContextProvider";
-import { userInfo } from "os";
+import { useSelector } from "react-redux";
+import { State } from "../redux/reducer";
 
 function Navbar() {
   const {
@@ -20,6 +21,7 @@ function Navbar() {
     setScreenSize,
     screenSize,
   } = useStateContext();
+  const { user } = useSelector<State, any>((state) => state);
 
   const NavButton: React.FC<{
     title: string;
@@ -58,6 +60,8 @@ function Navbar() {
     }
   }, [screenSize]);
 
+  console.log(user);
+
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
@@ -93,14 +97,14 @@ function Navbar() {
             onClick={() => handleClick("userProfile")}
           >
             <img
-              src={avatar}
+              src={user.picture}
               className="rounded-full w-8 h-8"
               alt="user-picture"
             />
             <p>
               <span className="text-gray-400 text-14">Hi, </span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">
-                username
+                {user.username}
               </span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />

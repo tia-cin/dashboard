@@ -1,6 +1,6 @@
 import React from "react";
 import { SiShopware } from "react-icons/si";
-import background from "../data/data/welcome.png";
+import background from "../data/landing.png";
 import { Auth } from "../components";
 
 const Landing = () => {
