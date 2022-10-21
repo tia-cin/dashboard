@@ -5,11 +5,10 @@ import { BsChatLeft } from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import avatar from "../data/avatar.jpg";
 import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../context/ContextProvider";
 import { useSelector } from "react-redux";
-import { State } from "../redux/reducer";
+import { StateType } from "../types";
 
 function Navbar() {
   const {
@@ -21,7 +20,7 @@ function Navbar() {
     setScreenSize,
     screenSize,
   } = useStateContext();
-  const { user } = useSelector<State, any>((state) => state);
+  const { user } = useSelector<StateType, any>((state) => state);
 
   const NavButton: React.FC<{
     title: string;

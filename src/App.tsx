@@ -26,7 +26,7 @@ import { Footer, Navbar, Sidebar, ThemeSettings } from "./components";
 import { useStateContext } from "./context/ContextProvider";
 import { useSelector } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { State } from "./redux/reducer";
+import { StateType } from "./types";
 
 const App = () => {
   const {
@@ -38,7 +38,7 @@ const App = () => {
     themeSettings,
     setThemeSettings,
   } = useStateContext();
-  const { user } = useSelector<State, any>((state) => state);
+  const { user } = useSelector<StateType, any>((state) => state);
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");

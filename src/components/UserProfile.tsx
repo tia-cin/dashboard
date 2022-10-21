@@ -3,13 +3,12 @@ import { MdOutlineCancel } from "react-icons/md";
 import { Button } from ".";
 import { userProfileData } from "../data/dummy";
 import { useStateContext } from "../context/ContextProvider";
-import avatar from "../data/avatar.jpg";
 import { useSelector } from "react-redux";
-import { State } from "../redux/reducer";
+import { StateType } from "../types";
 
 function UserProfile() {
   const { currentColor } = useStateContext();
-  const { user } = useSelector<State, any>((state) => state);
+  const { user } = useSelector<StateType, any>((state) => state);
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
@@ -58,8 +57,7 @@ function UserProfile() {
             <div>
               <p className="font-semibold dark:text-gray-200 ">{item.title}</p>
               <p className="text-gray-500 text-sm dark:text-gray-400">
-                {" "}
-                {item.desc}{" "}
+                {item.desc}
               </p>
             </div>
           </div>

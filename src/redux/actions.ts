@@ -1,18 +1,11 @@
 import jwt_decode from "jwt-decode";
 import { ThunkAction } from "redux-thunk";
-import { RootState } from "./store";
-
-export const GOOGLE_LOGIN = "GOOGLE_LOGIN";
-export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
-
-interface GoogleLogIn {
-  type: typeof GOOGLE_LOGIN;
-  payload: any;
-}
+import { RootState } from "../types";
+import { ActionGoogleLogIn, GOOGLE_LOGIN } from "../types";
 
 export const googleLogIn = (
   res: any
-): ThunkAction<void, RootState, null, GoogleLogIn> => {
+): ThunkAction<void, RootState, null, ActionGoogleLogIn> => {
   return async (dispatch) => {
     const user: any = jwt_decode(res.credential);
     return dispatch({
@@ -26,5 +19,3 @@ export const googleLogIn = (
     });
   };
 };
-
-export type ActionInterface = GoogleLogIn;

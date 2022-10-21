@@ -1,17 +1,13 @@
-import { ActionInterface, GOOGLE_LOGIN } from "./actions";
+import { ActionInterface, GOOGLE_LOGIN, StateType } from "../types";
 
-export interface State {
-  user: null | any;
-}
-
-const initialState: State = {
+const initialState: StateType = {
   user: null,
 };
 
 export const reducer = (
   state = initialState,
   action: ActionInterface
-): State => {
+): StateType => {
   switch (action.type) {
     case GOOGLE_LOGIN:
       return {
