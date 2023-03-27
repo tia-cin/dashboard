@@ -12,7 +12,14 @@ export type ActionInterface = ActionGoogleLogIn;
 
 // STATE
 export interface StateType {
-  user: null | any;
+  user: null | UserType;
+}
+
+export interface UserType {
+  picture: any;
+  username: string;
+  type: string;
+  email: string;
 }
 
 // STORE
