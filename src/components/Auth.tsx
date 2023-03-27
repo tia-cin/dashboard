@@ -30,9 +30,10 @@ const Auth = () => {
           {create ? "Sign In" : "Log In"}
         </h1>
         {create ? (
-          <form>
+          <form className="flex flex-col justify-between items-center">
             <div>
               <input
+                className="border p-2 rounded my-1"
                 name="username"
                 type="text"
                 placeholder="User Name"
@@ -42,6 +43,7 @@ const Auth = () => {
             </div>
             <div>
               <input
+                className="border p-2 rounded my-1"
                 name="email"
                 type="text"
                 placeholder="Email"
@@ -49,6 +51,9 @@ const Auth = () => {
                 onChange={handleOnChange}
               />
             </div>
+            <button className="bg-emerald-400 rounded my-1 w-full p-2 mb-2 hover:bg-opacity-80 transition-all">
+              Create Account
+            </button>
           </form>
         ) : (
           <div className="my-5">
