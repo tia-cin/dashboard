@@ -25,7 +25,7 @@ function Sidebar() {
               onClick={() => handleCloseSidebar}
               className="gap-3 mt-3 flex text-xl font-extrabold ml-3 tracking-tight dark:text-white text-slate-900 items-center"
             >
-              <SiShopware /> <span>Shoppy</span>
+              <SiShopware /> <span>DashScope</span>
             </Link>
             <TooltipComponent content={"Menu"}>
               <button

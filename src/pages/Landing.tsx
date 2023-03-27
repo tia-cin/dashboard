@@ -9,7 +9,7 @@ const Landing = () => {
       <header className="flex justify-between mb-10">
         <div className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight text-slate-900">
           <SiShopware />
-          <p>Shoppy</p>
+          <p>DashScope</p>
         </div>
       </header>
       <div className="flex justify-around mt-5 items-center">
