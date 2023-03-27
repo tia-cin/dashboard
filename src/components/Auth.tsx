@@ -6,6 +6,7 @@ import { googleLogIn } from "../redux/actions";
 
 const Auth = () => {
   const dispatch = useDispatch();
+  const [create, setCreate] = React.useState(false);
   return (
     <div className="border-solid border-color rounded border-2 px-20 py-10">
       <div className="flex flex-col justify-around items-center">
@@ -16,6 +17,17 @@ const Auth = () => {
             onError={() => console.log("Error")}
           />
         </div>
+      </div>
+      <div className="flex flex-col justify-around items-center text-sm">
+        <p>
+          {create ? "You're an user already?" : "New here?"}
+          <span
+            className="text-blue-400 cursor-pointer mx-2"
+            onClick={() => setCreate(!create)}
+          >
+            {create ? "Log in" : "Create one now"}
+          </span>
+        </p>
       </div>
     </div>
   );
