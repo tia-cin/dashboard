@@ -2,7 +2,7 @@ import React from "react";
 import { FaGoogle } from "react-icons/fa";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
-import { googleLogIn } from "../redux/actions";
+import { createNewUser, googleLogIn } from "../redux/actions";
 import { UserType } from "../types";
 
 const Auth = () => {
@@ -23,6 +23,12 @@ const Auth = () => {
       [e.currentTarget.name]: e.currentTarget.value,
     });
   };
+
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch<any>(createNewUser(newUser));
+  };
+
   return (
     <div className="border-solid border-color rounded border-2 px-20 py-10">
       <div className="flex flex-col justify-around items-center">
@@ -30,7 +36,10 @@ const Auth = () => {
           {create ? "Sign In" : "Log In"}
         </h1>
         {create ? (
-          <form className="flex flex-col justify-between items-center">
+          <form
+            className="flex flex-col justify-between items-center"
+            onSubmit={handleOnSubmit}
+          >
             <div>
               <input
                 className="border p-2 rounded my-1"

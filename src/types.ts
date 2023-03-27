@@ -1,6 +1,7 @@
 import { reducer } from "./redux/reducer";
 export const GOOGLE_LOGIN = "GOOGLE_LOGIN";
 export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
+export const CREATE_NEW_USER= "CREATE_NEW_USER"
 
 // ACTIONS
 export interface ActionGoogleLogIn {
@@ -8,7 +9,12 @@ export interface ActionGoogleLogIn {
   payload: any;
 }
 
-export type ActionInterface = ActionGoogleLogIn;
+export interface ActionCreateNewUser {
+  type: typeof CREATE_NEW_USER,
+  payload: UserType
+}
+
+export type ActionInterface = ActionGoogleLogIn | ActionCreateNewUser;
 
 // STATE
 export interface StateType {

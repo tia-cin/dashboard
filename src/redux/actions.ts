@@ -1,6 +1,11 @@
 import jwt_decode from "jwt-decode";
 import { ThunkAction } from "redux-thunk";
-import { RootState } from "../types";
+import {
+  ActionCreateNewUser,
+  CREATE_NEW_USER,
+  RootState,
+  UserType,
+} from "../types";
 import { ActionGoogleLogIn, GOOGLE_LOGIN } from "../types";
 
 export const googleLogIn = (
@@ -18,4 +23,14 @@ export const googleLogIn = (
       },
     });
   };
+};
+
+export const createNewUser = (
+  newUser: UserType
+): ThunkAction<void, RootState, null, ActionCreateNewUser> => {
+  return async (dispatch) =>
+    dispatch({
+      type: CREATE_NEW_USER,
+      payload: newUser,
+    });
 };
