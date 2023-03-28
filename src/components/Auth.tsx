@@ -1,5 +1,4 @@
 import React from "react";
-import { FaGoogle } from "react-icons/fa";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { createNewUser, googleLogIn } from "../redux/actions";
@@ -69,7 +68,7 @@ const Auth = () => {
             <GoogleLogin
               onSuccess={(res) => dispatch<any>(googleLogIn(res))}
               onError={() => console.log("Error")}
-              text="signin_with"
+              text="continue_with"
             />
           </div>
         )}

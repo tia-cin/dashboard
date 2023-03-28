@@ -32,7 +32,7 @@ function Footer() {
       >
         © 2021 Copyright:{" "}
         <a className="text-gray-800" href="#!">
-          Shoppy
+          DashScope
         </a>
       </div>
     </footer>
